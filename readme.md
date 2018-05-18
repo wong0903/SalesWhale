@@ -1,6 +1,7 @@
 
 **Install Docker CE**
-	1.Update the apt package index.
+
+1.Update the apt package index.
 
     	$ sudo apt-get update
 2.Install the latest version of Docker CE, or go to the next step to install a specific version:
