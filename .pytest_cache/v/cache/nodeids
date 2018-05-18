@@ -1,0 +1,5 @@
+[
+  "test_proxy.py::test_update",
+  "test_proxy.py::test_getWhale",
+  "test_proxy.py::test_calculateHitRatio"
+]
