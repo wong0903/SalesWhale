@@ -78,4 +78,6 @@ Download the files, go to the directory and do pytest
 	# Example
 	$ python3 -m pytest
 
+For speedtest
 
+	python3 service_test.py
