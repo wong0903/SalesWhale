@@ -21,8 +21,8 @@ def hello():
 def updateWhale(): 
 	whale = request.get_json(silent=True)
 	if logic.updateWhale(whale):
-		return 'Succesful'
-	return 'Unsuccessful'
+		return 'Succesful\n'
+	return 'Unsuccessful\n'
 
 # get all whales
 @app.route("/whales", methods = ['GET'])
@@ -58,7 +58,7 @@ def getWhale(id):
 @app.route("/whales/purge", methods = ['GET'])
 def purgeCache():
 	cache.clear()
-	return 'purge succesful'
+	return 'Purge succesful\n'
 
 # sync cache
 @app.route("/whales/sync", methods = ['GET'])
@@ -66,7 +66,7 @@ def syncCache():
 	list_whales_id = list(cache.__dict__['_cache'].keys())
 
 	if not list_whales_id:
-		return 'Cache is empty'
+		return 'Cache is empty\n'
 	else:
 		for id in list_whales_id:
 			id = id[-2:]
@@ -80,16 +80,15 @@ def syncCache():
 				cache.set('whale_' + str(id), whale_api, timeout=5*60)
 			else:
 				continue
-		return 'Cache is updated'
+		return 'Cache is updated\n'
 
 # calculate the cache hit ratio
 @app.route("/whales/cache_info", methods = ['GET'])
 def getCacheHitRatio():
 	hit_ratio = 0
 	cache_info = {'cache_hit':cache_logger.hit_count, 'cache_miss':cache_logger.miss_count}
-	if cache_info['cache_hit'] != 0 and cache_info['cache_miss'] != 0:
-		hit_ratio = logic.calculateHitRatio(cache_info['cache_hit'], cache_info['cache_miss'])
-	return ('The cache hit ratio is {:.2f}'.format(hit_ratio))
+	hit_ratio = logic.calculateHitRatio(cache_info['cache_hit'], cache_info['cache_miss'])
+	return ('The cache hit ratio is {:.2f}\n'.format(hit_ratio))
 		
 								
 # main logic

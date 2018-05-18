@@ -9,6 +9,7 @@ def client():
 	client = proxyserver.app.test_client()
 	yield client
 
+'''Test updateWhale()'''
 def test_update(client):
 	mimetype = 'application/json'
 	headers = {
@@ -26,6 +27,7 @@ def test_update(client):
 	assert response.status_code == 200
 	assert b'Unsuccessful' in response.data
 
+'''Test getWhale(id)'''
 def test_getWhale(client):
 
 	#Existing whale
@@ -41,6 +43,7 @@ def test_getWhale(client):
 	#Comment it if testing non-existing whale
 	assert 10 == response.get_json()['whale']['id']
 
+'''Test getCacheHitRatio'''
 def test_calculateHitRatio():
 	cache_hit = 5
 	cache_miss = 5

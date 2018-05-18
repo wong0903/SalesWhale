@@ -1,3 +1,13 @@
+'''
+Control class for proxyserver.py
+Contains 4 functions
+1)updateWhale 		 - Add the whale to the whale market
+2)getWhales   		 - Get every whales in the whale market
+3)getWhale    		 - Find whale in the whale market by its id
+4)calculateHitRatio  - Calculate the cache hit ratio
+'''
+
+
 from flask import jsonify
 import http.client
 import ssl, json
@@ -6,7 +16,6 @@ from config import TOKEN
 
 ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS)
 
-# TESTED
 # return: true/false
 def updateWhale(whale):
 	conn = http.client.HTTPSConnection('whalemarket.saleswhale.io', context = ssl_context)
@@ -22,6 +31,7 @@ def updateWhale(whale):
 	#convert string to dict
 	whale = json.loads(my_str)
 	if list(whale)[0] == 'error':
+		print(list(whale)[0]['error'].decode('utf-8'))
 		return False
 	return True
 
@@ -46,9 +56,14 @@ def getWhale(id):
 	conn.close()
 	return data.decode('utf-8')
 
+# return the hit ratio
+# if no request has been done yet, return 0
 def calculateHitRatio(cache_hit, cache_miss):
-	hit_ratio = cache_hit/(cache_hit + cache_miss)
-	return hit_ratio
+	if cache_hit != 0 and cache_miss != 0:
+		hit_ratio = cache_hit/(cache_hit + cache_miss)
+		return hit_ratio
+	else:
+		return 0
 
  
 

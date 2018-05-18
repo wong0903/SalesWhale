@@ -1,3 +1,8 @@
+"""
+Bonus
+speedtest - Shows the api retrieval time
+"""
+
 from urllib.parse import urlparse
 import http.client, ssl
 import json, time, random

@@ -1,5 +1,0 @@
-{
-  "test.py::test_update": true,
-  "test_proxy.py::test_calculateHitRatio": true,
-  "test_proxy.py::test_getCachehitratio": true
-}

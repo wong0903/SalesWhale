@@ -35,7 +35,7 @@ ____________________________________________________________________
 -   POST /whales - Add a new whale
     ```
     # Example
-    ~ curl -X POST http://localhost:5000/whales -d '{"name": "orca", "country": "Atlantis" }'
+    ~ curl -X POST http://localhost:5000/whales -H "Content-Type: application/json" -d '{"name": "orca", "country": "Atlantis" }'
     ```
 -   GET /whale/:id -  Find whale by id
     ```
