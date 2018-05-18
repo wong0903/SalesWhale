@@ -24,4 +24,4 @@ Log out and log back in so that your group membership is re-evaluated
 ____________________________________________________________________
 **Run the proxy service from docker hub**
 
-	$ docker run -p 5000:50000 wong0903/get-started:proxy
+	$ docker run -p 5000:5000 wong0903/get-started:proxy
