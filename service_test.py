@@ -38,10 +38,12 @@ def speed_test():
 	start_time = time.time()	# start time
 
 	conn = http.client.HTTPConnection(proxyip, port=5000)
-	for j in list_whales_id:		# loop for every whales id
-		conn.request('GET','/whale/' +  str(j))
-		res = conn.getresponse()
-		data = res.read()
+	#Do twice- first time for direct access, second time for cache access
+	for i in range(2):
+		for j in list_whales_id:		# loop for every whales id
+			conn.request('GET','/whale/' +  str(j))
+			res = conn.getresponse()
+			data = res.read()
 	conn.close()
 
 	total_time = (time.time() - start_time)	# end time
@@ -69,16 +71,17 @@ def speed_test_with_noise():
 	start_time = time.time()	# start time
 
 	conn = http.client.HTTPConnection(proxyip, port=5000)
-	for j in list_whales_id:		
-		conn.request('GET','/whale/' +  str(j))
-		res = conn.getresponse()
-		data = res.read()
+	for i in range(2):
+		for j in list_whales_id:		
+			conn.request('GET','/whale/' +  str(j))
+			res = conn.getresponse()
+			data = res.read()
 	conn.close()
 
 	total_time = (time.time() - start_time)	# end time
 	average_time = (total_time/ len(list_whales_id))
 
-	print('[SPEED TEST]')
+	print('[SPEED TEST WITH NOISE]')
 	print('Number of API call:\t{}'.format(len(list_whales_id)))
 	print('Total time:\t{}s'.format(total_time))
 	print('Average time:\t{}s'.format(average_time))
@@ -87,5 +90,5 @@ def speed_test_with_noise():
 
 if __name__ == "__main__":
 	speed_test()
-	speed_test_with_noise()
+	#speed_test_with_noise()
 
