@@ -6,15 +6,13 @@ Contains 4 functions
 3)getWhale    		 - Find whale in the whale market by its id
 4)calculateHitRatio  - Calculate the cache hit ratio
 '''
-
-
 from flask import jsonify
 import http.client
 import ssl, json
 
 from config import TOKEN
 
-ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS)
+ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLSv1)
 
 # return: true/false
 def updateWhale(whale):
@@ -24,14 +22,12 @@ def updateWhale(whale):
 	conn.request('POST', '/whales', body = params, headers = headers)
 	response = conn.getresponse()
 	data = response.read()
-	print(data)
 	conn.close()
 	#convert bytes to string
 	my_str = data.decode('utf-8')
 	#convert string to dict
 	whale = json.loads(my_str)
 	if list(whale)[0] == 'error':
-		print(list(whale)[0]['error'].decode('utf-8'))
 		return False
 	return True
 

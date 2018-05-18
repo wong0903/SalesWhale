@@ -1,5 +1,6 @@
 
 
+
 **1.Set up the repository**
 
     	$ sudo apt-get update
@@ -64,7 +65,17 @@ ____________________________________________________________________
 	# Example
 	~ curl -X GET http://localhost:5000/whales/cache_info
 	```
+____________________________________________________________________
+**Service Testing**
+Download the files and use pytest
 
+	# Example
+	$ pytest -v
+
+If you don't have pytest
+
+	sudo apt install -y python3-pip
+	pip3 install pytest
 
 
 

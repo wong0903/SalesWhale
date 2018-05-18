@@ -12,7 +12,7 @@ ADD . /app
 # Update the package index
 RUN apt-get update
 
-RUN apt-get install -y python-pip python-dev build-essential
+RUN apt-get install -y python3-pip 
 
 RUN pip install -r requirements.txt
 
