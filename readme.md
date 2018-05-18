@@ -13,6 +13,7 @@
 This command downloads a test image and runs it in a container. When the container runs, it prints an informational message and exits.
 ____________________________________________________________________
 **Manage Docker as a non-root user**
+
 1.Create the docker group.
 
 		$ sudo groupadd docker
