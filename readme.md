@@ -1,5 +1,6 @@
-Install Docker CE
-1.Update the apt package index.
+
+**Install Docker CE**
+	1.Update the apt package index.
 
     	$ sudo apt-get update
 2.Install the latest version of Docker CE, or go to the next step to install a specific version:
@@ -9,8 +10,8 @@ Install Docker CE
 
 		$ sudo docker run hello-world
 This command downloads a test image and runs it in a container. When the container runs, it prints an informational message and exits.
-______________________________________________________________________________
-Manage Docker as a non-root user
+____________________________________________________________________
+**Manage Docker as a non-root user**
 1.Create the docker group.
 
 		$ sudo groupadd docker
@@ -18,11 +19,7 @@ Manage Docker as a non-root user
 
 		$ sudo usermod -aG docker $USER
 Log out and log back in so that your group membership is re-evaluated
-______________________________________________________________________________
-Run the proxy service from docker hub
+____________________________________________________________________
+**Run the proxy service from docker hub**
 
 	$ docker run -p 5000:50000 wong0903/get-started:proxy
-
-
-
-
