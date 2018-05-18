@@ -67,15 +67,15 @@ ____________________________________________________________________
 	```
 ____________________________________________________________________
 **Service Testing**
-Download the files, go to the directory and do pytest
-
-	# Example
-	$ python3 -m pytest
 
 Install all the packages 
 
 	sudo apt install -y python3-pip
 	pip3 install -r requirements
 
+Download the files, go to the directory and do pytest
+
+	# Example
+	$ python3 -m pytest
 
 
