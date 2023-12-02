@@ -90,5 +90,5 @@ def speed_test_with_noise():
 
 if __name__ == "__main__":
 	speed_test()
-	#speed_test_with_noise()
+	speed_test_with_noise()
 
